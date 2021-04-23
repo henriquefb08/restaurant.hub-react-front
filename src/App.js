@@ -1,36 +1,46 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route } from "react-router-dom";
-import PaginaPrincipal from "./pages/MainPage/paginaPrincipal";
-import Login from './pages/MainPage/login';
+import Navbar from "../src/components/Navbar";
+import Login from "./pages/MainPage/login";
 import SignupConsumer from "./pages/MainPage/signupConsumer";
 import SignupRestaurante from "./pages/MainPage/signupRestaurant";
+import PageConsumer from "./pages/ConsumerPage/Consumer";
 import Home from "./pages/MainPage/home";
 import { Component } from "react";
 
 class App extends Component {
-  state = { 
-    loggedInUser:false, 
-  }
+  state = {
+    loggedInUser: false,
+  };
 
-  handleLogin = (value) => { 
-    this.setState({ 
-      loggedInUser: value
-    })
-  }
-  render() { 
-  return (
-    <div className="App" style={appStyle}>
-      <PaginaPrincipal/> 
+  handleLogin = (value) => {
+    this.setState({
+      loggedInUser: value,
+    });
+  };
+  
+  render() {
+    return (
+      <div className="App" style={appStyle}>
       
-      <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path="/login" render = { (props) =>  <Login {...props} handleLogin={this.handleLogin} /> } />
-        <Route path="/signupConsumer" component={SignupConsumer} />
-        <Route path="/signupRestaurant" component={SignupRestaurante} />
-      </Switch>
-    </div>
-  );
-}}
+        <Navbar loggedInUser = {this.state.loggedInUser} />
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route
+            path="/login"
+            render={(props) => (
+              <Login {...props} handleLogin={this.handleLogin} />
+            )}
+          />
+          <Route path="/signupConsumer" component={SignupConsumer} />
+          <Route path="/signupRestaurant" component={SignupRestaurante} />
+          <Route path="/consumer" component={PageConsumer} />
+        </Switch>
+      </div>
+    );
+  }
+}
 
 const appStyle = {
   textAlign: "center",

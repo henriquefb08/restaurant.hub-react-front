@@ -1,71 +1,125 @@
 import React, { Component } from "react";
-import { Card } from "react-bootstrap";
-import "./mainpage.css";
+import { Card, Button } from "react-bootstrap";
 
 class Home extends Component {
   render() {
     return (
-      <div>
-        <div>
-          <Card className="bg-dark text-white">
-            <Card.Img className="CardImg" src="./teste1.jpg" alt="Card image" />
-            <Card.ImgOverlay>
-              <Card.Title> '' </Card.Title>
-              <Card.Text>
-                Criado para você ter na palma da sua mão todos os cardápios dos
-                melhores restaurantes de sua cidade! Agora só aproveitar o sabor
-                da sua comida!
-              </Card.Text>
-              <Card.Text>Last updated 3 mins ago</Card.Text>
-            </Card.ImgOverlay>
-          </Card>
-        </div>
-        <div>
-          <p>
-            Criado para você ter na palma da sua mão todos os cardápios dos
-            melhores restaurantes de sua cidade!
-          </p>
-        </div>
-        <hr style={{display: "block", 
-                   marginTop: "0.9em", 
-                    marginBottom: "0.9em",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    borderStyle: "solid",
-                    borderWidth: "3px"
-                    }}/>
+      <div> 
+        <div style={homeStyleDiv}> 
+        <Card.Img style={cardImg} src="./capa.gif" alt="Card image" />
+
+        <p style={pStyle}>
+          <i>
+            "Criado para você ter na palma da sua mão todos os cardápios dos
+            melhores restaurantes de sua cidade! Agora só aproveitar o sabor da
+            sua comida!"
+          </i>
+        </p>
+
+        <hr style={hrStyle}/> 
+      
+      
         <div>
           <Card style={{ width: "23rem", borderStyle: "none" }}>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                <h5>
+                  <b>  
+                    Aqui você pode ser consumidor e aproveitar o melhor de todos
+                    os cardápios ou ser um restaurante e ter seu cardápio na
+                    palma da mão de todos os seus clientes.
+                  </b>
+                </h5>
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
             </Card.Body>
           </Card>
+
+          <Card style={{ width: "390px",  height: "auto" , borderStyle: "none" }}>
+            <Card.Body style={{backgroundColor:"#9fe3d6"}}>
+              <Card.Title>
+               
+                <h4>  
+                  <b> Facilite seu pedido no restaurante aqui </b>
+                </h4>
+              </Card.Title>
+              <Card.Text>
+                <p> 
+                  Aqui você pode ser consumidor e aproveitar o melhor de todos
+                  os cardápios ou ser um restaurante e ter seu cardápio na palma
+                  da mão de todos os seus clientes.
+                </p>
+              </Card.Text>
+              <Card.Link  href="/signupConsumer" > <Button variant="dark" style={buttonStyle}>  Aproveite </Button> </Card.Link>
+            </Card.Body>
+          </Card>
+          <Card.Img src="./hr.gif" alt="rh" style={{width: "390px"}}/>
+
+          <Card style={{ width: "24rem", borderStyle: "none" }}>
            
-          <Card style={{ width: "23rem", borderStyle: "none" }}>
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-
+            <Card.Body style={{backgroundColor:"#fff"}}>
+              <Card.Title>
+               
+                <h4>  
+                  <b> Facilite seu pedido no restaurante aqui </b>
+                </h4>
+              </Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                <p> 
+                  Aqui você pode ser consumidor e aproveitar o melhor de todos
+                  os cardápios ou ser um restaurante e ter seu cardápio na palma
+                  da mão de todos os seus clientes.
+                </p>
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
+              <Card.Link  href="/signupRestaurant" > <Button variant="dark" style={buttonStyle} >  Cadastre seu restaurante </Button> </Card.Link>
             </Card.Body>
           </Card>
-
           
+
         </div>
         <div>
           <p> Restaurant list aqui </p>
+        </div>
         </div>
       </div>
     );
   }
 }
+const homeStyleDiv = { 
+  marginTop:"16vw"
+
+}
+const hrStyle = {
+  display: "block",
+  marginTop: "0.10em",
+  marginBottom: "0.10em",
+  marginLeft: "45px",
+  marginRight: "45px",
+  borderStyle: "solid",
+  borderWidth: "2px",
+  color: "#74bcae",
+};
+
+const cardImg = {
+  width: "380px",
+  height: "auto",
+  marginBotton: "40vw",
+  boxShadow: "0px 4px 6px #888888"
+};
+
+const pStyle = {
+  marginTop: "20px",
+  marginLeft: "30px",
+  marginRight: "30px",
+};
+const buttonStyle = {
+  marginBotton: "1vw",
+  boxShadow: "0px 3px 6px #888888"
+};
+// 9fe3d6 - azul claro
+// 74bcae - azul escuro
+// d0c295 - bege
+// 695d47 - marrom
+// f56e2c - laranja escuro
+// ffc107 - laranja claro
 
 export default Home;

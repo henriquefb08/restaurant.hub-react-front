@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, Card, ToggleButtonGroup, ToggleButton} from "react-bootstrap";
+import { Form, Button, Card} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from "../../utils/api.util.js";
 
@@ -20,7 +20,8 @@ class login extends Component {
     event.preventDefault();
     try {
       await api.login(this.state);
-      this.props.history.push("/");
+      this.props.handleLogin(true)
+      this.props.history.push("/consumer");
     } catch (e) {
       console.log(e);
       this.setState({
@@ -31,14 +32,16 @@ class login extends Component {
 
   render() {
     return (
-      <div>
+      <div> 
+      <div style={loginStyleDiv} >
+      <Card.Img src="./hr.gif" alt="rh"/>
         <h1> Login </h1>
         {this.state.message && <h4> {this.state.message} </h4>}
-        <p> Acesse sua conta criada com seu email e senha registrados. </p>
+        <p style={pStyle}> <b> Acesse sua conta criada com seu email e senha registrados.</b> </p>
         <div style={{ paddingLeft: "10vw", paddingRight: "10vw" }}>
           <Form>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label> <b> Email </b></Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -52,7 +55,7 @@ class login extends Component {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label> <b> Password </b></Form.Label>
               <Form.Control
                 type="password"
                 name="password"
@@ -61,35 +64,43 @@ class login extends Component {
                 placeholder="Insira sua senha"
               />
             </Form.Group>
-            <ToggleButtonGroup name='typeUser' type='radio' value={this.state.typeUser} onChange={this.handleInput}> 
-            <ToggleButton value='consumer'>Consumidor</ToggleButton> 
-            <ToggleButton value='restaurant'>Restaurante</ToggleButton> 
+        
 
-
-            </ToggleButtonGroup>
-
-            <Button variant="primary" type="submit" onClick={this.handleSubmit}>
+            <Button variant="dark" type="submit" onClick={this.handleSubmit} style={buttonStyle}>
               Entrar
             </Button>
           </Form>
 
           <Card style={{ marginTop: "3vw" }}>
             <Card.Body>
-              Se você ainda não realizou seu cadastro, clique no link abaixo:
+             <b>  Se você ainda não realizou seu cadastro, clique no link abaixo:</b>
             </Card.Body>
             <Card.Link>
              
-              <Link to="/signupConsumer">Sou Consumidor </Link>
+              <Link to="/signupConsumer"> <b> Sou Consumidor </b></Link>
             </Card.Link>
             <Card.Link>
               
-              <Link to="/signupRestaurant">Sou Restaurante </Link>
+              <Link to="/signupRestaurant"> <b> Sou Restaurante </b> </Link>
             </Card.Link>
           </Card>
+        </div>
         </div>
       </div>
     );
   }
 }
+const loginStyleDiv = { 
+  marginTop:"16vw"
+}
+const pStyle = {
+  marginTop: "20px",
+  marginLeft: "30px",
+  marginRight: "30px"
+};
+const buttonStyle = {
+  marginBotton: "1vw",
+  boxShadow: "0px 3px 6px #888888"
+};
 
 export default login;
