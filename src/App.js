@@ -6,7 +6,7 @@ import LoginRestaurant from "./pages/MainPage/LoginRestaurant";
 import SignupConsumer from "./pages/MainPage/SignupConsumer";
 import SignupRestaurante from "./pages/MainPage/SignupRestaurant";
 import PageConsumer from "./pages/ConsumerPage/Consumer";
-import PageRestaurant from "./pages/Restaurant/restaurante";
+import PageRestaurant from "./pages/RestaurantPage/Restaurante";
 import Home from "./pages/MainPage/Home";
 import { Component } from "react";
 import EditConsumer from "./pages/ConsumerPage/editConsumer";

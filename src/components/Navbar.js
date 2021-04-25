@@ -65,8 +65,8 @@ class Menu extends Component {
           
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                  <Link to="/editConsumer"> <b> Editar Perfil </b></Link>
-                  <Link to="#seusPedidos"><b> Seus pedidos </b></Link>
+                  <Link style={linkStyle}to="/editConsumer"> <b> Editar Perfil </b></Link>
+                  <Link style={linkStyle} to="#seusPedidos"><b> Seus pedidos </b></Link>
                  <Button onClick={() => this.logoutFunction()}> <b> Sair </b> </Button> 
                 </Nav>
               </Navbar.Collapse>
@@ -75,9 +75,9 @@ class Menu extends Component {
      
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Link to="#editarPerfil">Editar Perfil</Link>
-              <Link to="#editarCardapio">Editar Cardápio</Link>
-              <Link to="#pedidos">Pedidos</Link>
+              <Link style={linkStyle} to="#editarPerfil">Editar Perfil</Link>
+              <Link  style={linkStyle} to="#editarCardapio">Editar Cardápio</Link>
+              <Link style={linkStyle} to="#pedidos">Pedidos</Link>
               <Button onClick={() => this.logoutFunction()}> <b> Sair </b> </Button> 
         
             </Nav>

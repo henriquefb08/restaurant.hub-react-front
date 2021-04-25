@@ -47,7 +47,7 @@ class signupConsumer extends Component {
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
-                  {" "}
+                  
                   <b> Nome </b>
                 </Form.Label>
                 <Form.Control
@@ -61,7 +61,7 @@ class signupConsumer extends Component {
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
-                  {" "}
+                  
                   <b> Email </b>
                 </Form.Label>
                 <Form.Control
@@ -77,8 +77,8 @@ class signupConsumer extends Component {
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
-                  {" "}
-                  <b> Confirme seu email </b>{" "}
+                  
+                  <b> Confirme seu email </b>
                 </Form.Label>
                 <Form.Control
                   name="confirmEmail"
@@ -104,8 +104,8 @@ class signupConsumer extends Component {
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>
-                  {" "}
-                  <b> Descrição </b>{" "}
+                  
+                  <b> Descrição </b>
                 </Form.Label>
                 <Form.Control
                   name="description"
@@ -131,7 +131,7 @@ class signupConsumer extends Component {
             </Card.Body>
             <Card.Link>
               <Link to="/login">
-                <b> Login </b>{" "}
+                <b> Login </b>
               </Link>
             </Card.Link>
           </Card>
