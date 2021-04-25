@@ -3,12 +3,13 @@ import { Form, Button, Card} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from "../../utils/api.util.js";
 
-class login extends Component {
+class LoginRestaurant extends Component {
   state = {
     email: "",
     password: "",
     message: "",
-    typeUser:"consumer"
+    typeUser:"restaurant", 
+   
   };
 
   handleInput = (event) => {
@@ -19,9 +20,13 @@ class login extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await api.login(this.state);
-      this.props.handleLogin(true)
-      this.props.history.push("/consumer");
+      const dataUser = await api.loginRestaurant(this.state);
+      console.log(dataUser)
+      this.props.handleLogin(true, dataUser)
+      
+      this.props.history.push("/restaurant");
+      
+     
     } catch (e) {
       console.log(e);
       this.setState({
@@ -35,7 +40,7 @@ class login extends Component {
       <div> 
       <div style={loginStyleDiv} >
       <Card.Img src="./hr.gif" alt="rh"/>
-        <h1> Login </h1>
+        <h3> Login Restaurant </h3>
         {this.state.message && <h4> {this.state.message} </h4>}
         <p style={pStyle}> <b> Acesse sua conta criada com seu email e senha registrados.</b> </p>
         <div style={{ paddingLeft: "10vw", paddingRight: "10vw" }}>
@@ -103,4 +108,4 @@ const buttonStyle = {
   boxShadow: "0px 3px 6px #888888"
 };
 
-export default login;
+export default LoginRestaurant;

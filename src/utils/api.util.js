@@ -20,11 +20,39 @@ class Api {
     )
   }
 
-  login = async (payload) => {
+  createConsumer = async (payload) => { 
+    try {
+      const { data } = await this.api.post("public/consumer/signup", payload)
+      return data 
+    } catch (error) {
+      throw new Error(error);
+    }
+
+  }
+
+
+
+
+  loginConsumer = async (payload) => {
     try {
       const { data } = await this.api.post("public/consumer/login", payload); 
       const { token } = data;
       localStorage.setItem("token", token);
+      return data.payload
+   
+    } catch (error) {
+      console.error(error);
+      throw new Error(error);
+    }
+  };
+
+  loginRestaurant = async (payload) => {
+    try {
+      const { data } = await this.api.post("public/restaurant/login", payload); 
+      const { token } = data;
+      localStorage.setItem("token", token);
+      return data.payload
+   
     } catch (error) {
       console.error(error);
       throw new Error(error);
@@ -39,11 +67,31 @@ class Api {
       console.error(e);
     }
   }
+
+  getConsumer = async (id) => { 
+    try {
+       const { data } = await this.api.get(`/private/consumer/list/${id}`)
+       return data
+    } catch (e) {
+      console.error(e);
+    
+    }
+
+  }
   logout = () => {
     localStorage.removeItem("token");
     console.log("logout efetuado");
     window.location = '/'
   };
+
+  editConsumer = async (dataConsumer, id) => { 
+    try {
+      const { data } = await this.api.put(`/private/consumer/edit/${id}`, dataConsumer)
+      return data
+    } catch (e) {
+      console.error(e); 
+    }
+  } 
 
 
 }

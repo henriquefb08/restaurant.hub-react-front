@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import api from "../../utils/api.util.js";
+import api from "../../utils/api.util";
 
-class signupConsumer extends Component {
+class editConsumer extends Component {
   state = {
     name: "",
     email: "",
-    confirmEmail: "",
-    description: "",
-    password: "",
+    description: ""
   };
 
   handleInput = (event) => {
@@ -19,16 +17,29 @@ class signupConsumer extends Component {
     });
   };
 
-  handleSubmit = async (event) => { 
-    event.preventDefault()
-  try {
-    await api.createConsumer(this.state);
-    this.props.history.push("/loginConsumer");
-  } catch (error) {
-    console.log(error)
-  }
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await api.editConsumer(this.state, this.props.dataUser.id);
+      this.props.history.push("/consumer");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  componentDidMount = async () => {
+    try {
+      const infoConsumer = await api.getConsumer(this.props.dataUser.id);
+      this.setState({
+        name: infoConsumer.name,
+        email:infoConsumer.email ,
+        description: infoConsumer.description,
     
-  }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   render() {
     return (
@@ -40,14 +51,13 @@ class signupConsumer extends Component {
             style={{ width: "24rem", boxShadow: "0px 4px 6px #888888" }}
           />
           <h3 style={{ marginTop: "3vw" }}>
-            <b> Signup Consumidor </b>
+            <b> Editar Perfil </b>
           </h3>
 
           <div style={signupStyleSubDiv}>
             <Form>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group controlId="formBasicName">
                 <Form.Label>
-                  {" "}
                   <b> Nome </b>
                 </Form.Label>
                 <Form.Control
@@ -61,7 +71,6 @@ class signupConsumer extends Component {
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
-                  {" "}
                   <b> Email </b>
                 </Form.Label>
                 <Form.Control
@@ -75,37 +84,10 @@ class signupConsumer extends Component {
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>
-                  {" "}
-                  <b> Confirme seu email </b>{" "}
-                </Form.Label>
-                <Form.Control
-                  name="confirmEmail"
-                  type="email"
-                  placeholder="Insira seu email novamente"
-                  value={this.state.confirmEmail}
-                  onChange={this.handleInput}
-                />
-              </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicDescription">
                 <Form.Label>
-                  <b> Password </b>
-                </Form.Label>
-                <Form.Control
-                  name="password"
-                  type="password"
-                  placeholder="Insira sua senha"
-                  value={this.state.password}
-                  onChange={this.handleInput}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>
-                  {" "}
-                  <b> Descrição </b>{" "}
+                  <b> Descrição </b>
                 </Form.Label>
                 <Form.Control
                   name="description"
@@ -116,7 +98,12 @@ class signupConsumer extends Component {
                 />
               </Form.Group>
 
-              <Button variant="dark" type="submit" style={buttonStyle} onClick={this.handleSubmit}>
+              <Button
+                variant="dark"
+                type="submit"
+                style={buttonStyle}
+                onClick={this.handleSubmit}
+              >
                 <b> Cadastrar </b>
               </Button>
             </Form>
@@ -131,7 +118,7 @@ class signupConsumer extends Component {
             </Card.Body>
             <Card.Link>
               <Link to="/login">
-                <b> Login </b>{" "}
+                <b> Login </b>
               </Link>
             </Card.Link>
           </Card>
@@ -160,4 +147,4 @@ const buttonStyle = {
   boxShadow: "0px 3px 6px #888888",
 };
 
-export default signupConsumer;
+export default editConsumer;

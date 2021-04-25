@@ -1,41 +1,79 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "../src/components/Navbar";
-import Login from "./pages/MainPage/login";
-import SignupConsumer from "./pages/MainPage/signupConsumer";
-import SignupRestaurante from "./pages/MainPage/signupRestaurant";
+import LoginConsumer from "./pages/MainPage/LoginConsumer";
+import LoginRestaurant from "./pages/MainPage/LoginRestaurant";
+import SignupConsumer from "./pages/MainPage/SignupConsumer";
+import SignupRestaurante from "./pages/MainPage/SignupRestaurant";
 import PageConsumer from "./pages/ConsumerPage/Consumer";
-import Home from "./pages/MainPage/home";
+import PageRestaurant from "./pages/Restaurant/restaurante";
+import Home from "./pages/MainPage/Home";
 import { Component } from "react";
+import EditConsumer from "./pages/ConsumerPage/editConsumer";
 
 class App extends Component {
   state = {
     loggedInUser: false,
+    dataUser: {type:''},
   };
 
-  handleLogin = (value) => {
+  handleLogin = (value, user) => {
     this.setState({
       loggedInUser: value,
+      dataUser: user,
     });
   };
-  
+
+
   render() {
     return (
       <div className="App" style={appStyle}>
-      
-        <Navbar loggedInUser = {this.state.loggedInUser} />
+        <Navbar loggedInUser={this.state.loggedInUser} typeUser={this.state.dataUser.type}  />
 
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
-            path="/login"
+            path="/loginConsumer"
             render={(props) => (
-              <Login {...props} handleLogin={this.handleLogin} />
+              <LoginConsumer
+                {...props}
+                handleLogin={this.handleLogin}
+              />
+            )}
+          />
+
+          <Route
+            path="/loginRestaurant"
+            render={(props) => (
+              <LoginRestaurant
+                {...props}
+                handleLogin={this.handleLogin}
+              />
+            )}
+          />
+           <Route
+           path="/editConsumer"
+            render={(props) => (
+              <EditConsumer
+                {...props}
+                dataUser={this.state.dataUser}
+              />
             )}
           />
           <Route path="/signupConsumer" component={SignupConsumer} />
           <Route path="/signupRestaurant" component={SignupRestaurante} />
-          <Route path="/consumer" component={PageConsumer} />
+          <Route
+            path="/consumer"
+            render={(props) => (
+              <PageConsumer {...props} dataUser={this.state.dataUser} />
+            )}
+          />
+           <Route
+            path="/restaurant"
+            render={(props) => (
+              <PageRestaurant {...props} dataUser={this.state.dataUser} />
+            )}
+          />
         </Switch>
       </div>
     );
