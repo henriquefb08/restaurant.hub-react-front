@@ -74,16 +74,33 @@ class Api {
   getItems = async (id) => {
     try {
       const { data } = await this.api.get(`public/item/list/${id}`);
-      console.log("util", data)
       return data;
     } catch (error) {
       console.error(error);
     }
   };
+  createItem = async (restaurant_id, name, value, description, category) => { 
+    console.log(name)
+    try {
+      const {data} = await this.api.post(`private/item/new`, {restaurant_id, name, value, description, category})
+      console.log('util', data)
+      return data;
+    } catch (error) {
+            console.error(error);
+    }
+  }
+
+  // deleteItem = async (itemId) => { 
+  //   try {
+  //     const { data } = await this.api.
+  //   } catch (e) {
+    
+  //   }
+  // }
 
   getConsumer = async (id) => {
     try {
-      const { data } = await this.api.get(`/private/consumer/list/${id}`);
+      const { data } = await this.api.get(`private/consumer/list/${id}`);
       return data;
     } catch (e) {
       console.error(e);
@@ -91,7 +108,7 @@ class Api {
   };
   getRestaurant = async (id) => {
     try {
-      const { data } = await this.api.get(`/public/restaurant/list/${id}`);
+      const { data } = await this.api.get(`public/restaurant/list/${id}`);
       return data;
     } catch (e) {
       console.error(e);
@@ -107,7 +124,7 @@ class Api {
   editConsumer = async (dataConsumer, id) => {
     try {
       const { data } = await this.api.put(
-        `/private/consumer/edit/${id}`,
+        `private/consumer/edit/${id}`,
         dataConsumer
       );
       return data;
@@ -115,6 +132,8 @@ class Api {
       console.error(e);
     }
   };
-}
 
+
+
+}
 export default new Api();

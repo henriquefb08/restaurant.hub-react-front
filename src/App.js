@@ -6,10 +6,13 @@ import LoginRestaurant from "./pages/MainPage/LoginRestaurant";
 import SignupConsumer from "./pages/MainPage/SignupConsumer";
 import SignupRestaurante from "./pages/MainPage/SignupRestaurant";
 import PageConsumer from "./pages/ConsumerPage/Consumer";
+import MenuRest from "./pages/ConsumerPage/MenuRest";
 import PageRestaurant from "./pages/RestaurantPage/Restaurante";
+import AddItemForm from "./components/AddItemForm";
 import Home from "./pages/MainPage/Home";
 import { Component } from "react";
 import EditConsumer from "./pages/ConsumerPage/editConsumer";
+
 
 class App extends Component {
   state = {
@@ -27,9 +30,10 @@ class App extends Component {
 
   render() {
     return (
+      
       <div className="App" style={appStyle}>
         <Navbar loggedInUser={this.state.loggedInUser} typeUser={this.state.dataUser.type}  />
-
+        <div style={homeStyleDiv}>  </div> 
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
@@ -74,6 +78,19 @@ class App extends Component {
               <PageRestaurant {...props} dataUser={this.state.dataUser} />
             )}
           />
+          <Route
+            path="/addItem"
+            render={(props) => (
+              <AddItemForm {...props} dataUser={this.state.dataUser} />
+               )}
+          />
+          <Route
+            path="/menuRest/:rest_id"
+            render={(props) => (
+              <MenuRest {...props} dataUser={this.state.dataUser} />
+               )}
+          />
+
         </Switch>
       </div>
     );
@@ -83,7 +100,9 @@ class App extends Component {
 const appStyle = {
   textAlign: "center",
 };
-
+const homeStyleDiv = {
+  marginTop: "16vw",
+};
 export default App;
 // 9fe3d6 - azul claro
 // 74bcae - azul escuro

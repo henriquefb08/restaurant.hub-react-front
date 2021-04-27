@@ -54,7 +54,7 @@ class signupRestaurante extends Component {
                 </Form.Label>
                 <Form.Control
                   name="name"
-                  type="email"
+                  type="text"
                   placeholder="Insira o nome do restaurante"
                   value={this.state.name}
                   onChange={this.handleInput}

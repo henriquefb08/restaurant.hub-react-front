@@ -21,7 +21,6 @@ class LoginRestaurant extends Component {
     event.preventDefault();
     try {
       const dataUser = await api.loginRestaurant(this.state);
-      console.log(dataUser)
       this.props.handleLogin(true, dataUser)
       
       this.props.history.push("/restaurant");

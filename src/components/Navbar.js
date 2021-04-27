@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, NavDropdown, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./mainpage.css";
 import api from "../utils/api.util";
 
 
