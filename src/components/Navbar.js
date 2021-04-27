@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, NavDropdown, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./mainpage.css";
 import api from "../utils/api.util";
 
 
@@ -19,9 +18,7 @@ class Menu extends Component {
 
 
     return (
-      <div>
-        {!this.props.loggedInUser ? (
-          <div>
+     
             <Navbar
               collapseOnSelect
               expand="lg"
@@ -31,14 +28,19 @@ class Menu extends Component {
             >
               <Navbar.Brand href="#home"> <b> Restaur@nt.hub </b></Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        {!this.props.loggedInUser ? (
+          
 
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                   <Link style={linkStyle} to="/">
                   <b> Home </b>
                   </Link>
-                  <Link style={linkStyle} to="/login">
-                  <b> Login </b>
+                  <Link style={linkStyle} to="/loginConsumer">
+                  <b> Login Consumidor </b>
+                  </Link>
+                  <Link style={linkStyle} to="/loginRestaurant">
+                  <b> Login Restaurante </b>
                   </Link>
                   <NavDropdown
                     title= "Quero me cadastrar"
@@ -57,29 +59,32 @@ class Menu extends Component {
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
-            </Navbar>
-          </div>
-        ) : (
-          <div>
-            <Navbar
-              collapseOnSelect
-              expand="lg"
-              variant="dark"
-              style={navbarClass}
-            >
-              <Navbar.Brand href="#home"> <b> Restaur@nt.hub </b></Navbar.Brand>
-              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          
+        ) : this.props.typeUser === 'consumer' ? (
+          
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                  <Nav.Link href="#editarPerfil"> <b> Editar Perfil </b></Nav.Link>
-                  <Nav.Link href="#seusPedidos"><b> Seus pedidos </b></Nav.Link>
+                  <Link style={linkStyle}to="/editConsumer"> <b> Editar Perfil </b></Link>
+                  <Link style={linkStyle} to="#seusPedidos"><b> Seus pedidos </b></Link>
                  <Button onClick={() => this.logoutFunction()}> <b> Sair </b> </Button> 
                 </Nav>
               </Navbar.Collapse>
-            </Navbar>
-          </div>
+          
+        ) : ( 
+     
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Link style={linkStyle} to="#editarPerfil">Editar Perfil</Link>
+              <Link  style={linkStyle} to="#editarCardapio">Editar Cardápio</Link>
+              <Link style={linkStyle} to="#pedidos">Pedidos</Link>
+              <Button onClick={() => this.logoutFunction()}> <b> Sair </b> </Button> 
+        
+            </Nav>
+          </Navbar.Collapse>
+        
         )}
-      </div>
+        </Navbar>
+     
     );
   }
 }

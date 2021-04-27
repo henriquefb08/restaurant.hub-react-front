@@ -1,15 +1,45 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import api from "../../utils/api.util.js";
 
 class signupRestaurante extends Component {
+  state = {
+    name: "",
+    email: "",
+    confirmEmail: "",
+    password: "",
+    categories: "",
+    description: "",
+  };
+
+  handleInput = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await api.createRestaurant(this.state);
+      this.props.history.push("/loginRestaurant");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     return (
       <div>
         <div style={signupStyleDiv}>
-        <Card.Img src="./signupRestaurant.gif" alt="rh" style={{ width: "24rem", boxShadow: "0px 4px 6px #888888"}}/>
+          <Card.Img
+            src="./signupRestaurant.gif"
+            alt="rh"
+            style={{ width: "24rem", boxShadow: "0px 4px 6px #888888" }}
+          />
 
-          <h4 style={{marginTop: "3vw"}}>  
+          <h4 style={{ marginTop: "3vw" }}>
             <b> Signup Restaurante </b>
           </h4>
           <div
@@ -18,23 +48,40 @@ class signupRestaurante extends Component {
             }
           >
             <Form>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group controlId="formBasicName">
                 <Form.Label>
-                  
-                  <b> Email </b>
+                  <b> Nome </b>
                 </Form.Label>
-                <Form.Control type="email" placeholder="Insira seu email" />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
+                <Form.Control
+                  name="name"
+                  type="text"
+                  placeholder="Insira o nome do restaurante"
+                  value={this.state.name}
+                  onChange={this.handleInput}
+                />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
+                <Form.Label>
+                  <b> Email </b>
+                </Form.Label>
+                <Form.Control
+                  name="email"
+                  type="email"
+                  placeholder="Insira seu email"
+                  value={this.state.email}
+                  onChange={this.handleInput}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicConfirmEmail">
                 <Form.Label>
                   <b> Confirme seu email</b>
                 </Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="Insira seu email novamente"
+                  name="confirmEmail"
+                  value={this.state.confirmEmail}
+                  onChange={this.handleInput}
                 />
               </Form.Group>
 
@@ -42,33 +89,51 @@ class signupRestaurante extends Component {
                 <Form.Label>
                   <b> Password </b>
                 </Form.Label>
-                <Form.Control type="password" placeholder="Insira sua senha" />
+                <Form.Control
+                  name="password"
+                  type="password"
+                  placeholder="Insira sua senha"
+                  value={this.state.password}
+                  onChange={this.handleInput}
+                />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicCategories">
                 <Form.Label>
                   <b> Categoria </b>
                 </Form.Label>
-                <Form.Control as="select">
-                  <option> ex1 </option>
-                  <option>ex2</option>
-                  <option>ex3</option>
-                  <option>ex4</option>
-                  <option>ex5</option>
+                <Form.Control
+                  name="categories"
+                  value={this.state.categories}
+                  onChange={this.handleInput}
+                  as="select"
+                >
+                  <option>Escolha a categoria</option>
+                  <option>Japonesa</option>
+                  <option>Brasileira</option>
+                  <option>Italiana</option>
+                  <option>Francesa</option>
+                  <option>Indiana</option>
+                  <option>Francesa</option>
+                  <option>Fast Food</option>
+                  <option>Outros</option>
                 </Form.Control>
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicDescription">
                 <Form.Label>
                   <b> Descrição</b>
                 </Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Descreva você, seja criativo :D"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.handleInput}
                 />
               </Form.Group>
 
-              <Button variant="dark" type="submit" style={buttonStyle}>
+              <Button variant="dark" type="submit" style={buttonStyle} onClick={this.handleSubmit}>
                 <b> Cadastrar </b>
               </Button>
             </Form>
@@ -87,7 +152,6 @@ class signupRestaurante extends Component {
 
               <Card.Link>
                 <Link to="/login">
-                  
                   <b> Login </b>
                 </Link>
               </Card.Link>
@@ -111,11 +175,10 @@ const signupStyleSubDiv = {
   marginBotton: "2vw",
   marginLeft: "3vw",
   marginRight: "3vw",
-  
 };
 const buttonStyle = {
   marginBotton: "1vw",
-  boxShadow: "0px 3px 6px #888888"
+  boxShadow: "0px 3px 6px #888888",
 };
 
 export default signupRestaurante;
