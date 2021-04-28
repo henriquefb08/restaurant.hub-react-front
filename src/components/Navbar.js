@@ -21,7 +21,7 @@ class Menu extends Component {
         style={navbarClass}
         fixed="top"
       >
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <b> Restaur@nt.hub </b>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -71,9 +71,6 @@ class Menu extends Component {
               <Link style={linkStyle} to="/editRestaurant">
                 Editar Perfil
               </Link>
-              <Link style={linkStyle} to="#editarCardapio">
-                Editar Cardápio
-              </Link>
               <Button variant='dark'onClick={() => this.logoutFunction()}>
                 <b> Sair </b>
               </Button>
@@ -91,6 +88,7 @@ const navbarClass = {
 };
 
 const linkStyle = {
+  marginBottom: '10px',
   color: "Black",
 };
 

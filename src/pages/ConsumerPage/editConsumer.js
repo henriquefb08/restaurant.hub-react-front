@@ -8,6 +8,13 @@ class editConsumer extends Component {
     email: "",
     description: "",
   };
+  handleCancel = async (event) => { 
+    event.preventDefault();
+    try {
+      this.props.history.push("/consumer");
+    } catch (e) {
+      console.log(e);
+    }};
 
   handleInput = (event) => {
     const { name, value } = event.target;
@@ -100,8 +107,20 @@ class editConsumer extends Component {
                 onClick={this.handleSubmit}
               >
                 <b> Salvar edição </b>
-              </Button>
+              </Button>     
             </Form>
+            <Card.Link href="/consumer" >
+              <Button
+                variant="danger"
+                type="submit"
+                style={{ marginTop: "10px", boxShadow: "0px 3px 6px #888888" }}
+                onClick={this.handleCancel}
+              >
+                <b> Cancelar edição </b>
+              </Button>
+            </Card.Link>
+         
+
           </div>
         </div>
       </div>
