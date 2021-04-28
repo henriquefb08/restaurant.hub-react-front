@@ -32,16 +32,15 @@ class signupRestaurante extends Component {
   render() {
     return (
       <div>
-        <div style={signupStyleDiv}>
           <Card.Img
             src="./signupRestaurant.gif"
             alt="rh"
             style={{ width: "24rem", boxShadow: "0px 4px 6px #888888" }}
           />
 
-          <h4 style={{ marginTop: "3vw" }}>
+          <h3 style={{ marginTop: "17px" }}>
             <b> Signup Restaurante </b>
-          </h4>
+          </h3>
           <div
             style={
               (signupStyleSubDiv, { paddingLeft: "12vw", paddingRight: "12vw" })
@@ -133,7 +132,12 @@ class signupRestaurante extends Component {
                 />
               </Form.Group>
 
-              <Button variant="dark" type="submit" style={buttonStyle} onClick={this.handleSubmit}>
+              <Button
+                variant="dark"
+                type="submit"
+                style={buttonStyle}
+                onClick={this.handleSubmit}
+              >
                 <b> Cadastrar </b>
               </Button>
             </Form>
@@ -157,14 +161,10 @@ class signupRestaurante extends Component {
               </Card.Link>
             </Card>
           </div>
-        </div>
       </div>
     );
   }
 }
-const signupStyleDiv = {
-  marginTop: "16vw",
-};
 
 const signupStyleSubDiv = {
   paddingLeft: "6vw",

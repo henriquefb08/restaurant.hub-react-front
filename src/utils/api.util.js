@@ -3,7 +3,7 @@ import axios from "axios";
 class Api {
   constructor() {
     this.api = axios.create({
-      baseURL: "https://restaurant-hub.herokuapp.com/",
+      baseURL: "https://api-restaurant-hub.herokuapp.com/",
     });
 
     this.api.interceptors.request.use(

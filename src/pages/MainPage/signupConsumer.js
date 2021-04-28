@@ -19,21 +19,20 @@ class signupConsumer extends Component {
     });
   };
 
-  handleSubmit = async (event) => { 
-    event.preventDefault()
-  try {
-    await api.createConsumer(this.state);
-    this.props.history.push("/loginConsumer");
-  } catch (error) {
-    console.log(error)
-  }
-    
-  }
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await api.createConsumer(this.state);
+      this.props.history.push("/loginConsumer");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   render() {
     return (
       <div>
-        <div style={signupStyleDiv}>
+      
           <Card.Img
             src="./signupConsumer.gif"
             alt="rh"
@@ -47,7 +46,6 @@ class signupConsumer extends Component {
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
-                  
                   <b> Nome </b>
                 </Form.Label>
                 <Form.Control
@@ -61,7 +59,6 @@ class signupConsumer extends Component {
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
-                  
                   <b> Email </b>
                 </Form.Label>
                 <Form.Control
@@ -71,13 +68,10 @@ class signupConsumer extends Component {
                   value={this.state.email}
                   onChange={this.handleInput}
                 />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
+            
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
-                  
                   <b> Confirme seu email </b>
                 </Form.Label>
                 <Form.Control
@@ -104,7 +98,6 @@ class signupConsumer extends Component {
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>
-                  
                   <b> Descrição </b>
                 </Form.Label>
                 <Form.Control
@@ -116,15 +109,20 @@ class signupConsumer extends Component {
                 />
               </Form.Group>
 
-              <Button variant="dark" type="submit" style={buttonStyle} onClick={this.handleSubmit}>
+              <Button
+                variant="dark"
+                type="submit"
+                style={buttonStyle}
+                onClick={this.handleSubmit}
+              >
                 <b> Cadastrar </b>
               </Button>
             </Form>
           </div>
-        </div>
+        
         <div>
           <Card
-            style={{ marginTop: "3vw", marginLeft: "4vw", marginRight: "4vw" }}
+            style={{ marginTop: "3vw", marginLeft: "40px", marginRight: "40px" }}
           >
             <Card.Body>
               <b> Se você já realizou seu cadastro, realize o login:</b>
@@ -140,17 +138,10 @@ class signupConsumer extends Component {
     );
   }
 }
-const signupStyleDiv = {
-  marginTop: "16vw",
-  marginBotton: "15vw",
-};
 
 const signupStyleSubDiv = {
   paddingLeft: "7vw",
-  paddingRight: "7vw",
   paddindBotton: "2vw",
-  paddindTop: "4vw",
-  marginTop: "1vw",
   marginBotton: "2vw",
   marginLeft: "4vw",
   marginRight: "4vw",

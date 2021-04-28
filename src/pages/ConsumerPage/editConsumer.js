@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import api from "../../utils/api.util";
 
 class editConsumer extends Component {
   state = {
     name: "",
     email: "",
-    description: ""
+    description: "",
   };
 
   handleInput = (event) => {
@@ -32,9 +31,8 @@ class editConsumer extends Component {
       const infoConsumer = await api.getConsumer(this.props.dataUser.id);
       this.setState({
         name: infoConsumer.name,
-        email:infoConsumer.email ,
+        email: infoConsumer.email,
         description: infoConsumer.description,
-    
       });
     } catch (error) {
       console.log(error);
@@ -44,7 +42,7 @@ class editConsumer extends Component {
   render() {
     return (
       <div>
-        <div style={signupStyleDiv}>
+        <div>
           <Card.Img
             src="./signupConsumer.gif"
             alt="rh"
@@ -80,9 +78,6 @@ class editConsumer extends Component {
                   value={this.state.email}
                   onChange={this.handleInput}
                 />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
               </Form.Group>
 
               <Form.Group controlId="formBasicDescription">
@@ -104,33 +99,16 @@ class editConsumer extends Component {
                 style={buttonStyle}
                 onClick={this.handleSubmit}
               >
-                <b> Cadastrar </b>
+                <b> Salvar edição </b>
               </Button>
             </Form>
           </div>
-        </div>
-        <div>
-          <Card
-            style={{ marginTop: "3vw", marginLeft: "4vw", marginRight: "4vw" }}
-          >
-            <Card.Body>
-              <b> Se você já realizou seu cadastro, realize o login:</b>
-            </Card.Body>
-            <Card.Link>
-              <Link to="/login">
-                <b> Login </b>
-              </Link>
-            </Card.Link>
-          </Card>
         </div>
       </div>
     );
   }
 }
-const signupStyleDiv = {
-  marginTop: "16vw",
-  marginBotton: "15vw",
-};
+
 
 const signupStyleSubDiv = {
   paddingLeft: "7vw",
