@@ -68,7 +68,7 @@ class Menu extends Component {
         ) : (
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Link style={linkStyle} to="#editarPerfil">
+              <Link style={linkStyle} to="/editRestaurant">
                 Editar Perfil
               </Link>
               <Link style={linkStyle} to="#editarCardapio">

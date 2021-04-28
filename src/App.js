@@ -12,6 +12,7 @@ import AddItemForm from "./components/AddItemForm";
 import Home from "./pages/MainPage/Home";
 import { Component } from "react";
 import EditConsumer from "./pages/ConsumerPage/editConsumer";
+import EditRestaurant from ".pages/RestaurantPage/editRestaurant"
 
 
 class App extends Component {
@@ -59,6 +60,15 @@ class App extends Component {
            path="/editConsumer"
             render={(props) => (
               <EditConsumer
+                {...props}
+                dataUser={this.state.dataUser}
+              />
+            )}
+          />
+          <Route
+           path="/editRestaurant"
+            render={(props) => (
+              <EditRestaurant
                 {...props}
                 dataUser={this.state.dataUser}
               />

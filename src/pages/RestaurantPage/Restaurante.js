@@ -8,20 +8,29 @@ class PageRestaurant extends Component {
     items: [],
     infoUser: {},
   };
-  componentDidMount = async () => {
-    const restaurant = await api.getRestaurant(this.props.dataUser.id);
+  // dentro da classe
+loadItems = async () => {
+  // tudo que tem dentro do didmount
+  const restaurant = await api.getRestaurant(this.props.dataUser.id);
     const item = await api.getItems(this.props.dataUser.id);
-    console.log(item);
     this.setState({
       infoUser: restaurant,
       items: item,
     });
-  };
-
-  deleteItem = async (itemId) => {
-    // PRecisa fazer a rota no back-end e api utils
-  };
-
+}
+componentDidMount = () => {
+  this.loadItems();
+}
+removeItem = async (id) => {
+  try {
+    // o que já tem dentro do try
+    await api.deleteItem(id)
+    this.loadItems()
+  } catch (error) {
+    console.error(error) 
+  }
+}
+ 
   render() {
     return (
       <div >
@@ -47,9 +56,9 @@ class PageRestaurant extends Component {
                     <Card.Text>
                       {item.description}  / <b> {item.category} </b>
                     </Card.Text>
+                    <Link onClick={()=>{this.removeItem(item._id)}}> <div> Remover </div> </Link> 
                   </Card.Body>
                 </Card>
-
                 
               </div>
             );
@@ -66,6 +75,7 @@ const menuStyle = {
   borderRadius: "10px",
   marginLeft: "20px",
   marginRight: "20px",
+  marginBottom: '18px',
   width: "auto",
   height: "auto",
 };
