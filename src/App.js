@@ -1,17 +1,18 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "../src/components/Navbar";
+import { Component } from "react";
+import Home from "./pages/MainPage/Home";
 import LoginConsumer from "./pages/MainPage/LoginConsumer";
 import LoginRestaurant from "./pages/MainPage/LoginRestaurant";
 import SignupConsumer from "./pages/MainPage/SignupConsumer";
 import SignupRestaurante from "./pages/MainPage/SignupRestaurant";
 import PageConsumer from "./pages/ConsumerPage/Consumer";
-import MenuRest from "./pages/ConsumerPage/MenuRest";
 import PageRestaurant from "./pages/RestaurantPage/Restaurante";
+import MenuRest from "./pages/ConsumerPage/MenuRest";
 import AddItemForm from "./components/AddItemForm";
-import Home from "./pages/MainPage/Home";
-import { Component } from "react";
-import EditConsumer from "./pages/ConsumerPage/editConsumer";
+import EditConsumer from "./pages/ConsumerPage/EditConsumer";
+import EditRestaurant from "./pages/RestaurantPage/EditRestaurant";
 
 
 class App extends Component {
@@ -64,6 +65,15 @@ class App extends Component {
               />
             )}
           />
+          <Route
+           path="/editRestaurant"
+            render={(props) => (
+              <EditRestaurant
+                {...props}
+                dataUser={this.state.dataUser}
+              />
+            )}
+          />
           <Route path="/signupConsumer" component={SignupConsumer} />
           <Route path="/signupRestaurant" component={SignupRestaurante} />
           <Route
@@ -92,6 +102,8 @@ class App extends Component {
           />
 
         </Switch>
+
+
       </div>
     );
   }

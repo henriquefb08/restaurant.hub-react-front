@@ -3,7 +3,7 @@ import axios from "axios";
 class Api {
   constructor() {
     this.api = axios.create({
-      baseURL: "https://restaurant-hub.herokuapp.com/",
+      baseURL: "https://api-restaurant-hub.herokuapp.com/",
     });
 
     this.api.interceptors.request.use(
@@ -90,13 +90,14 @@ class Api {
     }
   }
 
-  // deleteItem = async (itemId) => { 
-  //   try {
-  //     const { data } = await this.api.
-  //   } catch (e) {
-    
-  //   }
-  // }
+  deleteItem = async (itemId) => { 
+    try {
+      const { data } = await this.api.delete(`private/item/delete/${itemId}`);
+      return data
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   getConsumer = async (id) => {
     try {
@@ -133,7 +134,18 @@ class Api {
     }
   };
 
-
+  editRestaurant = async (dataRest, id) => {
+    try {
+      const { data } = await this.api.put(
+        `private/restaurant/edit/${id}`,
+        dataRest
+      );
+      return data;
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  
 
 }
 export default new Api();

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api from "../../utils/api.util";
 import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 class PageConsumer extends Component {
   state = {
     restaurantList: [],
@@ -43,7 +43,7 @@ class PageConsumer extends Component {
                     <Card.Text>
                       <p> {restaurant.description} </p>
                     </Card.Text>
-                    <Link to={`/menuRest/${restaurant._id}`}> Cardápio </Link> 
+                    <Link to={`/menuRest/${restaurant._id}`}> Cardápio </Link>
                   </Card.Body>
                 </Card>
               );
