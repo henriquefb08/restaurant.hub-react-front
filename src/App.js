@@ -13,7 +13,7 @@ import MenuRest from "./pages/ConsumerPage/MenuRest";
 import AddItemForm from "./components/AddItemForm";
 import EditConsumer from "./pages/ConsumerPage/EditConsumer";
 import EditRestaurant from "./pages/RestaurantPage/EditRestaurant";
-
+import './index.css';
 class App extends Component {
   state = {
     loggedInUser: false,
@@ -29,6 +29,8 @@ class App extends Component {
 
   render() {
     return (
+      <div className="mobileShow">
+       
       <div className="App" style={appStyle}>
         <Navbar
           loggedInUser={this.state.loggedInUser}
@@ -88,6 +90,7 @@ class App extends Component {
             )}
           />
         </Switch>
+      </div>
       </div>
     );
   }

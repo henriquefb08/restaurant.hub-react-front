@@ -21,3 +21,12 @@ code {
     background-color: #74bcae;
 
 }
+
+.mobileShow {display: none;}
+
+/* Smartphone Portrait and Landscape */
+@media only screen
+  and (min-device-width : 300px)
+  and (max-device-width : 1000px){ 
+    .mobileShow {display: inline;}
+}
