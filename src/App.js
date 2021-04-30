@@ -14,11 +14,10 @@ import AddItemForm from "./components/AddItemForm";
 import EditConsumer from "./pages/ConsumerPage/EditConsumer";
 import EditRestaurant from "./pages/RestaurantPage/EditRestaurant";
 
-
 class App extends Component {
   state = {
     loggedInUser: false,
-    dataUser: {type:''},
+    dataUser: { type: "" },
   };
 
   handleLogin = (value, user) => {
@@ -28,50 +27,38 @@ class App extends Component {
     });
   };
 
-
   render() {
     return (
-      
       <div className="App" style={appStyle}>
-        <Navbar loggedInUser={this.state.loggedInUser} typeUser={this.state.dataUser.type}  />
-        <div style={homeStyleDiv}>  </div> 
+        <Navbar
+          loggedInUser={this.state.loggedInUser}
+          typeUser={this.state.dataUser.type}
+        />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
             path="/loginConsumer"
             render={(props) => (
-              <LoginConsumer
-                {...props}
-                handleLogin={this.handleLogin}
-              />
+              <LoginConsumer {...props} handleLogin={this.handleLogin} />
             )}
           />
 
           <Route
             path="/loginRestaurant"
             render={(props) => (
-              <LoginRestaurant
-                {...props}
-                handleLogin={this.handleLogin}
-              />
-            )}
-          />
-           <Route
-           path="/editConsumer"
-            render={(props) => (
-              <EditConsumer
-                {...props}
-                dataUser={this.state.dataUser}
-              />
+              <LoginRestaurant {...props} handleLogin={this.handleLogin} />
             )}
           />
           <Route
-           path="/editRestaurant"
+            path="/editConsumer"
             render={(props) => (
-              <EditRestaurant
-                {...props}
-                dataUser={this.state.dataUser}
-              />
+              <EditConsumer {...props} dataUser={this.state.dataUser} />
+            )}
+          />
+          <Route
+            path="/editRestaurant"
+            render={(props) => (
+              <EditRestaurant {...props} dataUser={this.state.dataUser} />
             )}
           />
           <Route path="/signupConsumer" component={SignupConsumer} />
@@ -82,7 +69,7 @@ class App extends Component {
               <PageConsumer {...props} dataUser={this.state.dataUser} />
             )}
           />
-           <Route
+          <Route
             path="/restaurant"
             render={(props) => (
               <PageRestaurant {...props} dataUser={this.state.dataUser} />
@@ -92,18 +79,15 @@ class App extends Component {
             path="/addItem"
             render={(props) => (
               <AddItemForm {...props} dataUser={this.state.dataUser} />
-               )}
+            )}
           />
           <Route
             path="/menuRest/:rest_id"
             render={(props) => (
               <MenuRest {...props} dataUser={this.state.dataUser} />
-               )}
+            )}
           />
-
         </Switch>
-
-
       </div>
     );
   }
@@ -111,10 +95,9 @@ class App extends Component {
 
 const appStyle = {
   textAlign: "center",
+  marginTop: "14vw"
 };
-const homeStyleDiv = {
-  marginTop: "16vw",
-};
+
 export default App;
 // 9fe3d6 - azul claro
 // 74bcae - azul escuro

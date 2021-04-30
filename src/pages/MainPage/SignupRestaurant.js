@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import api from "../../utils/api.util.js";
+import api from "../../utils/Api.util.js";
 
 class signupRestaurante extends Component {
   state = {
@@ -47,7 +46,7 @@ class signupRestaurante extends Component {
             }
           >
             <Form>
-              <Form.Group controlId="formBasicName">
+              <Form.Group >
                 <Form.Label>
                   <b> Nome </b>
                 </Form.Label>
@@ -59,7 +58,7 @@ class signupRestaurante extends Component {
                   onChange={this.handleInput}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group >
                 <Form.Label>
                   <b> Email </b>
                 </Form.Label>
@@ -71,7 +70,7 @@ class signupRestaurante extends Component {
                   onChange={this.handleInput}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicConfirmEmail">
+              <Form.Group >
                 <Form.Label>
                   <b> Confirme seu email</b>
                 </Form.Label>
@@ -84,7 +83,7 @@ class signupRestaurante extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group >
                 <Form.Label>
                   <b> Password </b>
                 </Form.Label>
@@ -97,7 +96,7 @@ class signupRestaurante extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicCategories">
+              <Form.Group>
                 <Form.Label>
                   <b> Categoria </b>
                 </Form.Label>
@@ -119,7 +118,7 @@ class signupRestaurante extends Component {
                 </Form.Control>
               </Form.Group>
 
-              <Form.Group controlId="formBasicDescription">
+              <Form.Group >
                 <Form.Label>
                   <b> Descrição</b>
                 </Form.Label>
@@ -141,26 +140,19 @@ class signupRestaurante extends Component {
                 <b> Cadastrar </b>
               </Button>
             </Form>
-          </div>
-          <div>
             <Card
-              style={{
-                marginTop: "3vw",
-                marginLeft: "4vw",
-                marginRight: "4vw",
-              }}
+              style={{margin:'20px'}}
             >
               <Card.Body>
                 <b> Se você já realizou seu cadastro, realize o login: </b>
               </Card.Body>
 
-              <Card.Link>
-                <Link to="/login">
+              <Card.Link href="/loginRestaurant">
                   <b> Login </b>
-                </Link>
               </Card.Link>
             </Card>
           </div>
+          
       </div>
     );
   }

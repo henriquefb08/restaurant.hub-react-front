@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import api from "../../utils/api.util.js";
+import api from "../../utils/Api.util.js";
 
 class signupConsumer extends Component {
   state = {
@@ -44,7 +44,7 @@ class signupConsumer extends Component {
 
           <div style={signupStyleSubDiv}>
             <Form>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group >
                 <Form.Label>
                   <b> Nome </b>
                 </Form.Label>
@@ -57,7 +57,7 @@ class signupConsumer extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group >
                 <Form.Label>
                   <b> Email </b>
                 </Form.Label>
@@ -70,7 +70,7 @@ class signupConsumer extends Component {
                 />
             
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group >
                 <Form.Label>
                   <b> Confirme seu email </b>
                 </Form.Label>
@@ -83,7 +83,7 @@ class signupConsumer extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group>
                 <Form.Label>
                   <b> Password </b>
                 </Form.Label>
@@ -96,7 +96,7 @@ class signupConsumer extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group >
                 <Form.Label>
                   <b> Descrição </b>
                 </Form.Label>
@@ -118,22 +118,21 @@ class signupConsumer extends Component {
                 <b> Cadastrar </b>
               </Button>
             </Form>
-          </div>
-        
-        <div>
-          <Card
-            style={{ marginTop: "3vw", marginLeft: "40px", marginRight: "40px" }}
+
+            <Card
+            style={{ margin: '30px' }}
           >
             <Card.Body>
               <b> Se você já realizou seu cadastro, realize o login:</b>
             </Card.Body>
-            <Card.Link>
-              <Link to="/login">
+           
+              <Link to="/loginConsumer">
                 <b> Login </b>
               </Link>
-            </Card.Link>
+            
           </Card>
-        </div>
+          </div>
+        
       </div>
     );
   }
@@ -141,13 +140,14 @@ class signupConsumer extends Component {
 
 const signupStyleSubDiv = {
   paddingLeft: "7vw",
+  paddingRight: "7vw",
   paddindBotton: "2vw",
   marginBotton: "2vw",
   marginLeft: "4vw",
   marginRight: "4vw",
 };
 const buttonStyle = {
-  marginBotton: "1vw",
+  marginBotton: "20px",
   boxShadow: "0px 3px 6px #888888",
 };
 

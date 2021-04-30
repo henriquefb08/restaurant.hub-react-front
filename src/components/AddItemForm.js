@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import api from "../utils/api.util.js";
+import api from "../utils/Api.util.js";
 
 class AddItemForm extends Component {
   constructor(props) {
@@ -21,13 +21,14 @@ class AddItemForm extends Component {
     });
   };
 
-  handleCancel = async (event) => { 
+  handleCancel = async (event) => {
     event.preventDefault();
     try {
       this.props.history.push("/restaurant");
     } catch (e) {
       console.log(e);
-    }};
+    }
+  };
 
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,72 +49,85 @@ class AddItemForm extends Component {
   render() {
     return (
       <>
-         <Card.Img
+        <Card.Img
           src="./signupRestaurant.gif"
           alt="rh"
           style={{ width: "24rem", boxShadow: "0px 4px 6px #888888" }}
         />
-      <div> 
-      <h3 style={{ marginTop: "10px" }}>
-          <b> Editar perfil</b>
-        </h3>
-      </div>
-      <div
-      style={
-        (signupStyleSubDiv, { paddingLeft: "10vw", paddingRight: "10vw" })
-      }
-    >
-      <div>     </div>
-      <Form>
-        <Form.Group constrolId="AddItem">
-          <Form.Label> <b> Nome do Item </b> </Form.Label>
-          <Form.Control
-            name="name"
-            type="text"
-            placeholder="Insira o nome do Item"
-            value={this.state.name}
-            onChange={this.handleInput}
-          ></Form.Control>
-          <Form.Label> <b> Descrição </b></Form.Label>
-          <Form.Control
-            name="description"
-            type="text"
-            placeholder="Insira a descrição do item"
-            value={this.state.description}
-            onChange={this.handleInput}
-          ></Form.Control>
-          <Form.Label> <b> Valor </b>  </Form.Label>
-          <Form.Control
-            name="value"
-            type="text"
-            placeholder="Insira o valor do Item"
-            value={this.state.value}
-            onChange={this.handleInput}
-          ></Form.Control>
-          <Form.Label> <b> Categoria </b> </Form.Label>
-          <Form.Control
-            name="category"
-            type="text"
-            placeholder="Insira a categoria"
-            value={this.state.category}
-            onChange={this.handleInput}
-          ></Form.Control>
-        </Form.Group>
-        <Button style={buttonStyle} variant="dark" type="submit" onClick={this.handleSubmit}>
-         <b>  Adicionar </b>
-        </Button>
-      </Form>
-      <Card.Link href="/restaurant" >
-              <Button
-                variant="danger"
-                type="submit"
-                style={{ marginTop: "10px", boxShadow: "0px 3px 6px #888888" }}
-                onClick={this.handleCancel}
-              >
-                <b> Cancelar edição </b>
-              </Button>
-            </Card.Link>
-      </div>
+        <div>
+          <h3 style={{ marginTop: "10px" }}>
+            <b> Adicionar Item</b>
+          </h3>
+        </div>
+        <div
+          style={
+            (signupStyleSubDiv, { paddingLeft: "10vw", paddingRight: "10vw" })
+          }
+        >
+          <div> </div>
+          <Form>
+            <Form.Group>
+              <Form.Label>
+                <b> Nome do Item </b>
+              </Form.Label>
+              <Form.Control
+                name="name"
+                type="text"
+                placeholder="Insira o nome do Item"
+                value={this.state.name}
+                onChange={this.handleInput}
+              ></Form.Control>
+              <Form.Label>
+                <b> Descrição </b>
+              </Form.Label>
+              <Form.Control
+                name="description"
+                type="text"
+                placeholder="Insira a descrição do item"
+                value={this.state.description}
+                onChange={this.handleInput}
+              ></Form.Control>
+              <Form.Label>
+                <b> Valor </b>
+              </Form.Label>
+              <Form.Control
+                name="value"
+                type="text"
+                placeholder="Insira o valor em números ex:10"
+                value={this.state.value}
+                onChange={this.handleInput}
+              ></Form.Control>
+              <Form.Label>
+                <b> Categoria </b>
+              </Form.Label>
+              <Form.Control
+                name="category"
+                type="text"
+                placeholder="Insira a categoria ex: Bebidas, Saladas"
+                value={this.state.category}
+                onChange={this.handleInput}
+              ></Form.Control>
+            </Form.Group>
+            <Button
+              style={buttonStyle}
+              variant="dark"
+              type="submit"
+              onClick={this.handleSubmit}
+            >
+              <b> Adicionar </b>
+            </Button>
+          </Form>
+          <Card.Link href="/restaurant">
+            <Button
+              variant="danger"
+              type="submit"
+              style={{ marginTop: "10px", boxShadow: "0px 3px 6px #888888" }}
+              onClick={this.handleCancel}
+            >
+              <b> Cancelar edição </b>
+            </Button>
+          </Card.Link>
+        </div>
       </>
     );
   }
@@ -130,8 +144,8 @@ const signupStyleSubDiv = {
 };
 const buttonStyle = {
   marginBotton: "10px",
-  marginLeft: '9px',
-  marginRight: '10px',
+  marginLeft: "9px",
+  marginRight: "10px",
   boxShadow: "0px 3px 6px #888888",
 };
 

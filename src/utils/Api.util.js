@@ -32,7 +32,6 @@ class Api {
   createRestaurant = async (payload) => {
     try {
       const { data } = await this.api.post("public/restaurant/signup", payload);
-      console.log(data);
       return data;
     } catch (e) {
       throw new Error(e);
@@ -80,10 +79,8 @@ class Api {
     }
   };
   createItem = async (restaurant_id, name, value, description, category) => { 
-    console.log(name)
     try {
       const {data} = await this.api.post(`private/item/new`, {restaurant_id, name, value, description, category})
-      console.log('util', data)
       return data;
     } catch (error) {
             console.error(error);

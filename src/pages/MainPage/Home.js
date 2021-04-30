@@ -48,6 +48,10 @@ class Home extends Component {
         </Card>
         <Card.Img src="./hr.gif" alt="rh" />
 
+        <Card.Img style={{marginTop: '10px', boxShadow: "0px 4px 6px #888888", width: "340px",
+  height: "auto",   borderRadius: '8px'
+}} src="/sabores.png" alt="Card image" />
+
         <Card style={{ borderStyle: "none" }}>
           <Card.Body style={{ backgroundColor: "#fff" }}>
             <Card.Title>Seu cardápio com mais acessibilidade</Card.Title>
@@ -55,7 +59,7 @@ class Home extends Component {
               Para facilitar o uso do seu cardápio, a restaurant.hub facilita
               para seus clientes em um melhor formato de apresentação e estilo.
             </Card.Text>
-            <Card.Link href="/signupRestaurant">
+            <Card.Link href="/signupRestaurant"> 
               <Button variant="dark" style={buttonStyle}>
                 Cadastre seu restaurante
               </Button>
@@ -78,6 +82,7 @@ const cardImg = {
   width: "320px",
   height: "auto",
   boxShadow: "0px 4px 6px #888888",
+  borderRadius: '8px'
 };
 
 const pStyle = {

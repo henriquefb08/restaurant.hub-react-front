@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, NavDropdown, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import api from "../utils/api.util";
-
+import api from "../utils/Api.util";
 class Menu extends Component {
   logoutFunction = async (event) => {
     try {
@@ -27,7 +26,7 @@ class Menu extends Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         {!this.props.loggedInUser ? (
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav className="ml-auto">
               <Link style={linkStyle} to="/">
                 <b> Home </b>
               </Link>
@@ -40,16 +39,21 @@ class Menu extends Component {
               <NavDropdown
                 title="Quero me cadastrar"
                 id="collasible-nav-dropdown"
+                style={{ margin: "0px 70px 0px 70px" }}
               >
-                <NavDropdown.Item className="menu" href="#action/3.1">
-                  <Link style={linkStyle} to="/signupConsumer">
-                    <b> Sou Consumidor </b>
-                  </Link>
+                <NavDropdown.Item
+                  className="menu"
+                  href="/signupConsumer"
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <b> Sou Consumidor </b>
                 </NavDropdown.Item>
-                <NavDropdown.Item className="menu" href="#action/3.2">
-                  <Link style={linkStyle} to="/signupRestaurant">
-                    <b> Sou restautante </b>
-                  </Link>
+                <NavDropdown.Item
+                  className="menu"
+                  href="/signupRestaurant"
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <b> Sou Restautante </b>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
@@ -60,7 +64,7 @@ class Menu extends Component {
               <Link style={linkStyle} to="/editConsumer">
                 <b> Editar Perfil </b>
               </Link>
-              <Button variant='dark' onClick={() => this.logoutFunction()}>
+              <Button variant="dark" onClick={() => this.logoutFunction()}>
                 <b> Sair </b>
               </Button>
             </Nav>
@@ -71,7 +75,7 @@ class Menu extends Component {
               <Link style={linkStyle} to="/editRestaurant">
                 Editar Perfil
               </Link>
-              <Button variant='dark'onClick={() => this.logoutFunction()}>
+              <Button variant="dark" onClick={() => this.logoutFunction()}>
                 <b> Sair </b>
               </Button>
             </Nav>
@@ -88,7 +92,7 @@ const navbarClass = {
 };
 
 const linkStyle = {
-  marginBottom: '10px',
+  marginBottom: "10px",
   color: "Black",
 };
 

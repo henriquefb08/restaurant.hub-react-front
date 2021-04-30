@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import api from "../../utils/api.util.js";
+import api from "../../utils/Api.util";
 
 class EditRestaurant extends Component {
   state = {
@@ -65,7 +65,7 @@ class EditRestaurant extends Component {
           }
         >
           <Form>
-            <Form.Group controlId="formBasicName">
+            <Form.Group >
               <Form.Label>
                 <b> Nome </b>
               </Form.Label>
@@ -78,7 +78,7 @@ class EditRestaurant extends Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicCategories">
+            <Form.Group >
               <Form.Label>
                 <b> Categoria </b>
               </Form.Label>
@@ -100,7 +100,7 @@ class EditRestaurant extends Component {
               </Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="formBasicDescription">
+            <Form.Group >
               <Form.Label>
                 <b> Descrição</b>
               </Form.Label>

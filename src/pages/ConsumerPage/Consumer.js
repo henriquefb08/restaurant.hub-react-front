@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import api from "../../utils/api.util";
+import api from "../../utils/Api.util";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 class PageConsumer extends Component {
@@ -19,12 +19,11 @@ class PageConsumer extends Component {
   render() {
     return (
       <div style={ConsumerStyleDiv}>
-        <div>
-          <h5>
-            <b> Olá {this.state.infoUser.name} </b>
-          </h5>
-          <p> {this.state.infoUser.description} </p>
-        </div>
+        <h5>
+          <b> Olá {this.state.infoUser.name} </b>
+        </h5>
+        <p> {this.state.infoUser.description} </p>
+
         <div style={styleDivCards}>
           <h5>
             <b> Restaurantes disponíveis </b>
@@ -41,9 +40,11 @@ class PageConsumer extends Component {
                       {restaurant.categories}
                     </Card.Subtitle>
                     <Card.Text>
-                      <p> {restaurant.description} </p>
+                      <span> {restaurant.description} </span>
                     </Card.Text>
-                    <Link to={`/menuRest/${restaurant._id}`}> Cardápio </Link>
+                    <Link to={`/menuRest/${restaurant._id}`}>
+                      <b> Ver Cardápio</b>
+                    </Link>
                   </Card.Body>
                 </Card>
               );
@@ -59,10 +60,10 @@ const ConsumerStyleDiv = {
 };
 
 const styleDivCards = {
-  border: "solid 1px #d0c295",
+  border: "solid 1px #74bcae",
   borderRadius: "5px",
   margin: "20px 20px",
-  backgroundColor: "#d0c295",
+  backgroundColor: "#74bcae",
   padding: "15px 0px 10px 0px",
 };
 

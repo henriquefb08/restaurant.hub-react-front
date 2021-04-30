@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import api from "../../utils/api.util";
+import api from "../../utils/Api.util";
 
 class editConsumer extends Component {
   state = {
@@ -8,13 +8,14 @@ class editConsumer extends Component {
     email: "",
     description: "",
   };
-  handleCancel = async (event) => { 
+  handleCancel = async (event) => {
     event.preventDefault();
     try {
       this.props.history.push("/consumer");
     } catch (e) {
       console.log(e);
-    }};
+    }
+  };
 
   handleInput = (event) => {
     const { name, value } = event.target;
@@ -61,7 +62,7 @@ class editConsumer extends Component {
 
           <div style={signupStyleSubDiv}>
             <Form>
-              <Form.Group controlId="formBasicName">
+              <Form.Group>
                 <Form.Label>
                   <b> Nome </b>
                 </Form.Label>
@@ -74,7 +75,7 @@ class editConsumer extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group>
                 <Form.Label>
                   <b> Email </b>
                 </Form.Label>
@@ -87,7 +88,7 @@ class editConsumer extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicDescription">
+              <Form.Group>
                 <Form.Label>
                   <b> Descrição </b>
                 </Form.Label>
@@ -107,9 +108,9 @@ class editConsumer extends Component {
                 onClick={this.handleSubmit}
               >
                 <b> Salvar edição </b>
-              </Button>     
+              </Button>
             </Form>
-            <Card.Link href="/consumer" >
+            <Card.Link href="/consumer">
               <Button
                 variant="danger"
                 type="submit"
@@ -119,15 +120,12 @@ class editConsumer extends Component {
                 <b> Cancelar edição </b>
               </Button>
             </Card.Link>
-         
-
           </div>
         </div>
       </div>
     );
   }
 }
-
 
 const signupStyleSubDiv = {
   paddingLeft: "7vw",

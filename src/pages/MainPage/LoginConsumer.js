@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import api from "../../utils/api.util.js";
+import api from "../../utils/Api.util.js";
 
 class loginConsumer extends Component {
   state = {
@@ -42,7 +41,7 @@ class loginConsumer extends Component {
           </p>
           <div style={{ paddingLeft: "10vw", paddingRight: "10vw" }}>
             <Form>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group >
                 <Form.Label>
                   <b> Email </b>
                 </Form.Label>
@@ -55,7 +54,7 @@ class loginConsumer extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group >
                 <Form.Label>
                   <b> Password </b>
                 </Form.Label>
@@ -85,15 +84,11 @@ class loginConsumer extends Component {
                   abaixo:
                 </b>
               </Card.Body>
-              <Card.Link>
-                <Link to="/signupConsumer">
+              <Card.Link href="/signupConsumer" >
                    Sou Consumidor
-                </Link>
               </Card.Link>
-              <Card.Link>
-                <Link to="/signupRestaurant">
+              <Card.Link href="/signupRestaurant">
                   Sou Restaurante 
-                </Link>
               </Card.Link>
             </Card>
           </div>
