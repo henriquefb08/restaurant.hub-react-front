@@ -44,7 +44,7 @@ removeItem = async (id) => {
          
           {this.state.items.map((item) => {
             return (
-              <div>
+              <div key={item.id}>
                 <Card style={{ borderStyle: "none", textAlign: "left" }}>
                   <Card.Body style={{ backgroundColor: "#9fe3d6" }}>
                      
@@ -54,7 +54,7 @@ removeItem = async (id) => {
                         paddingRight: "5px",
                         borderRadius: "10px",
 
-                      }} > <b> {item.name}&nbsp;</b> - R${item.value} </span>
+                      }} > <b> {item.name}&nbsp;</b> - R${parseFloat(item.value).toFixed(2)} </span>
                       
                     <Card.Text>
                       {item.description}  / <b> {item.category} </b>

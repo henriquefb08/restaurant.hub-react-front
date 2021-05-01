@@ -31,7 +31,7 @@ class PageConsumer extends Component {
           <div className="d-flex justify-content-center flex-column align-items-center ">
             {this.state.restaurantList.map((restaurant) => {
               return (
-                <Card style={{ width: "16rem" }} className="mt-3">
+                <Card key={restaurant._id}  style={{ width: "16rem" }} className="mt-3">
                   <Card.Body>
                     <Card.Title>
                       <b> {restaurant.name} </b>

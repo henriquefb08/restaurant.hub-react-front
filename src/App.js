@@ -14,6 +14,7 @@ import AddItemForm from "./components/AddItemForm";
 import EditConsumer from "./pages/ConsumerPage/EditConsumer";
 import EditRestaurant from "./pages/RestaurantPage/EditRestaurant";
 import './index.css';
+
 class App extends Component {
   state = {
     loggedInUser: false,

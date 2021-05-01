@@ -43,6 +43,7 @@ class Api {
       const { data } = await this.api.post("public/consumer/login", payload);
       const { token } = data;
       localStorage.setItem("token", token);
+      localStorage.setItem("user", data.payload)
       return data.payload;
     } catch (error) {
       console.error(error);
@@ -54,7 +55,9 @@ class Api {
     try {
       const { data } = await this.api.post("public/restaurant/login", payload);
       const { token } = data;
+      console.log(data)
       localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(data.payload))
       return data.payload;
     } catch (error) {
       console.error(error);

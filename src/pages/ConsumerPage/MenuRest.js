@@ -33,7 +33,7 @@ class MenuRest extends Component {
         <div style={menuStyle}>
           {this.state.items.map((item) => {
             return (
-              <div>
+              <div key={item._id}>
                 <Card style={{ borderStyle: "none", textAlign: "left" }}>
                   <Card.Body style={{ backgroundColor: "#9fe3d6" }}>
                     <span
