@@ -2,7 +2,7 @@
 
 ##### Click [here](https://restaurant-hub.herokuapp.com/) to access **Restaurat.Hub**  :boom:
 
-##### Slides - Click [here](https://slides.com/fabiohfsousa/meninodomorro_game/fullscreen) To see the presentation of the project. 
+##### Slides - Click [here]() To see the presentation of the project. 
 ---
 
 ## Table of contents
