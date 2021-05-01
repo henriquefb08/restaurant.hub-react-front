@@ -2,7 +2,7 @@
 
 ##### Click [here](https://restaurant-hub.herokuapp.com/) to access **Restaurat.Hub**  :boom: Attention - This application is only mobile. 
 
-##### Slides - Click [here]() To see the presentation of the project. 
+##### Slides - Click [here](https://slides.com/fabiohfsousa/deck-5dbb68/fullscreen) To see the presentation of the project. 
 ---
 
 ## Table of contents
