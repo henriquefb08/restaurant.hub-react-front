@@ -1,6 +1,6 @@
 ![Start Screen](./public/home.png)
 
-##### Click [here](https://restaurant-hub.herokuapp.com/) to access **Restaurat.Hub**  :boom:
+##### Click [here](https://restaurant-hub.herokuapp.com/) to access **Restaurat.Hub**  :boom: Attention - This application is only mobile. 
 
 ##### Slides - Click [here]() To see the presentation of the project. 
 ---
@@ -14,6 +14,7 @@
 This project has the goal to present the knowledge learned on the third module of the Web Development Full Stack. 
 
 It was created a application mobile which is about a hub of menu of restaurants that has some features and is linked in a Api created in Node.js Mongoose, Express and others.
+##### Click [here](https://restaurant-hub.herokuapp.com/) to access **the API**
 
 ## Technologies
 Project is created with:
