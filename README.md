@@ -14,7 +14,7 @@
 This project has the goal to present the knowledge learned on the third module of the Web Development Full Stack. 
 
 It was created a application mobile which is about a hub of menu of restaurants that has some features and is linked in a Api created in Node.js Mongoose, Express and others.
-##### Click [here](https://restaurant-hub.herokuapp.com/) to access **the API**
+##### Click [here](https://github.com/henriquefb08/rest-api-restaurant.hub/tree/main) to access **the API**
 
 ## Technologies
 Project is created with:
@@ -25,8 +25,6 @@ Project is created with:
 * react-bootstrap -  1.5.2
 * react-dom - 17.0.2
 * react-router-dom -  5.2.0
-* react-scripts - 4.0.3
-* web-vitals - 1.1.1
 
 ## Setup
 To run this project, install it locally using npm:
