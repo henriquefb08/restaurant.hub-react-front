@@ -36,7 +36,7 @@ $ npm start
 
 ### Restaur@nt.Hub Features
 --- 
-####Consumer Features
+#### Consumer Features
 + Signup Page 
 	+ Name
 	+ Email
@@ -46,7 +46,7 @@ $ npm start
 + Main Page with restaurant list
 + Perfil ediction
 ---
-####Restaurant Features
+#### Restaurant Features
 + Signup Page 
 	+ Name
 	+ Email
