@@ -44,7 +44,7 @@ $ npm start
 + Login Page
 + Main Page with restaurant list
 + Perfil ediction
----
+--
 #### Restaurant Features
 + Signup Page 
 	+ Name
