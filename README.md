@@ -17,7 +17,7 @@ It was created a application mobile which is about a hub of menu of restaurants 
 ##### Click [here](https://github.com/henriquefb08/rest-api-restaurant.hub/tree/main) to access **the API**
 
 ## Technologies
-Project is created with:
+Project was created with:
 
 * axios -  0.21.1
 * bootstrap - 4.6.0
